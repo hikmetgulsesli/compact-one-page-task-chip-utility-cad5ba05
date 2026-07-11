@@ -1,0 +1,816 @@
+[
+  {
+    "screenId": "a406f175adf34515bd1dbadc29817ac6",
+    "screenTitle": "Short Operations - Compact One Page Task Chip Utility",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 141
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 145
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 149
+      },
+      {
+        "type": "link",
+        "label": "Cache Status",
+        "href": "#",
+        "line": 257
+      },
+      {
+        "type": "link",
+        "label": "JSON Export",
+        "href": "#",
+        "line": 258
+      },
+      {
+        "type": "button",
+        "label": "Operations",
+        "line": 120
+      },
+      {
+        "type": "button",
+        "label": "Settings",
+        "line": 121
+      },
+      {
+        "type": "button",
+        "label": "Recovery",
+        "line": 122
+      },
+      {
+        "type": "button",
+        "label": "Create Task",
+        "line": 124
+      },
+      {
+        "type": "button",
+        "label": "Create Task",
+        "line": 137
+      },
+      {
+        "type": "button",
+        "label": "All",
+        "line": 186
+      },
+      {
+        "type": "button",
+        "label": "Active",
+        "line": 187
+      },
+      {
+        "type": "button",
+        "label": "Done",
+        "line": 188
+      },
+      {
+        "type": "button",
+        "label": "Archive",
+        "line": 189
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 207
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 226
+      },
+      {
+        "type": "button",
+        "label": "visibility",
+        "line": 245
+      },
+      {
+        "type": "input",
+        "label": "Search tasks...",
+        "inputType": "text",
+        "placeholder": "Search tasks...",
+        "line": 166
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 196
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 215
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 234
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 141
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 145
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 149
+      },
+      {
+        "type": "link",
+        "label": "Cache Status",
+        "href": "#",
+        "line": 257
+      },
+      {
+        "type": "link",
+        "label": "JSON Export",
+        "href": "#",
+        "line": 258
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "Operations",
+        "line": 120
+      },
+      {
+        "type": "button",
+        "label": "Settings",
+        "line": 121
+      },
+      {
+        "type": "button",
+        "label": "Recovery",
+        "line": 122
+      },
+      {
+        "type": "button",
+        "label": "Create Task",
+        "line": 124
+      },
+      {
+        "type": "button",
+        "label": "Create Task",
+        "line": 137
+      },
+      {
+        "type": "button",
+        "label": "All",
+        "line": 186
+      },
+      {
+        "type": "button",
+        "label": "Active",
+        "line": 187
+      },
+      {
+        "type": "button",
+        "label": "Done",
+        "line": 188
+      },
+      {
+        "type": "button",
+        "label": "Archive",
+        "line": 189
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 207
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 226
+      },
+      {
+        "type": "button",
+        "label": "visibility",
+        "line": 245
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search tasks...",
+        "inputType": "text",
+        "placeholder": "Search tasks...",
+        "line": 166
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 196
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 215
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 234
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 21,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "c281df3f655a4cafbab49aff081355b4",
+    "screenTitle": "Short Editor - Compact One Page Task Chip Utility",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 130
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 131
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 132
+      },
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 149
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 153
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 157
+      },
+      {
+        "type": "link",
+        "label": "Cache Status",
+        "href": "#",
+        "line": 225
+      },
+      {
+        "type": "link",
+        "label": "JSON Export",
+        "href": "#",
+        "line": 226
+      },
+      {
+        "type": "button",
+        "label": "Create Task",
+        "line": 135
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 209
+      },
+      {
+        "type": "button",
+        "label": "Save Task",
+        "line": 212
+      },
+      {
+        "type": "input",
+        "label": "Enter task name",
+        "inputType": "text",
+        "placeholder": "Enter task name",
+        "line": 179
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 186
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 195
+      },
+      {
+        "type": "input",
+        "label": "Add additional context or notes...",
+        "inputType": "textarea",
+        "placeholder": "Add additional context or notes...",
+        "line": 205
+      },
+      {
+        "type": "form",
+        "label": "form",
+        "line": 175
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 130
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 131
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 132
+      },
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 149
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 153
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 157
+      },
+      {
+        "type": "link",
+        "label": "Cache Status",
+        "href": "#",
+        "line": 225
+      },
+      {
+        "type": "link",
+        "label": "JSON Export",
+        "href": "#",
+        "line": 226
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "Create Task",
+        "line": 135
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 209
+      },
+      {
+        "type": "button",
+        "label": "Save Task",
+        "line": 212
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Enter task name",
+        "inputType": "text",
+        "placeholder": "Enter task name",
+        "line": 179
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 186
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 195
+      },
+      {
+        "type": "input",
+        "label": "Add additional context or notes...",
+        "inputType": "textarea",
+        "placeholder": "Add additional context or notes...",
+        "line": 205
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 16,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "a574ff7f6f8249e89f82ed0584c593a8",
+    "screenTitle": "Settings and Preferences - Compact One Page Task Chip Utility",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 122
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 123
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 124
+      },
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 144
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 148
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 152
+      },
+      {
+        "type": "link",
+        "label": "Cache Status",
+        "href": "#",
+        "line": 240
+      },
+      {
+        "type": "link",
+        "label": "JSON Export",
+        "href": "#",
+        "line": 241
+      },
+      {
+        "type": "button",
+        "label": "Create Task",
+        "line": 126
+      },
+      {
+        "type": "button",
+        "label": "Clear Cache",
+        "line": 218
+      },
+      {
+        "type": "button",
+        "label": "Reset to Defaults",
+        "line": 227
+      },
+      {
+        "type": "button",
+        "label": "Save Preferences",
+        "line": 230
+      },
+      {
+        "type": "input",
+        "label": "Search...",
+        "inputType": "text",
+        "placeholder": "Search...",
+        "line": 118
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 174
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 182
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 198
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 202
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 122
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 123
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 124
+      },
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 144
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 148
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 152
+      },
+      {
+        "type": "link",
+        "label": "Cache Status",
+        "href": "#",
+        "line": 240
+      },
+      {
+        "type": "link",
+        "label": "JSON Export",
+        "href": "#",
+        "line": 241
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "Create Task",
+        "line": 126
+      },
+      {
+        "type": "button",
+        "label": "Clear Cache",
+        "line": 218
+      },
+      {
+        "type": "button",
+        "label": "Reset to Defaults",
+        "line": 227
+      },
+      {
+        "type": "button",
+        "label": "Save Preferences",
+        "line": 230
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search...",
+        "inputType": "text",
+        "placeholder": "Search...",
+        "line": 118
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 174
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 182
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 198
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 202
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 17,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "c4dfb33dd86d4d5fa3f74180750ceb6e",
+    "screenTitle": "Empty and Error Recovery - Compact One Page Task Chip Utility",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 163
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 164
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 165
+      },
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 176
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 180
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 184
+      },
+      {
+        "type": "link",
+        "label": "Cache Status",
+        "href": "#",
+        "line": 234
+      },
+      {
+        "type": "link",
+        "label": "JSON Export",
+        "href": "#",
+        "line": 235
+      },
+      {
+        "type": "button",
+        "label": "Create Task",
+        "line": 167
+      },
+      {
+        "type": "button",
+        "label": "Create Task",
+        "line": 190
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 215
+      },
+      {
+        "type": "button",
+        "label": "Create Your First Task",
+        "line": 219
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 163
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 164
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 165
+      },
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 176
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 180
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 184
+      },
+      {
+        "type": "link",
+        "label": "Cache Status",
+        "href": "#",
+        "line": 234
+      },
+      {
+        "type": "link",
+        "label": "JSON Export",
+        "href": "#",
+        "line": 235
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "Create Task",
+        "line": 167
+      },
+      {
+        "type": "button",
+        "label": "Create Task",
+        "line": 190
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 215
+      },
+      {
+        "type": "button",
+        "label": "Create Your First Task",
+        "line": 219
+      }
+    ],
+    "inputs": [],
+    "hardcodedData": [],
+    "totalInteractive": 12,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  }
+]
