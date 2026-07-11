@@ -1,0 +1,387 @@
+[
+  {
+    "screenId": "a406f175adf34515bd1dbadc29817ac6",
+    "title": "Short Operations - Compact One Page Task Chip Utility",
+    "componentName": "ShortOperationsCompactOnePageTaskChipUtility",
+    "file": "src/screens/ShortOperationsCompactOnePageTaskChipUtility.tsx",
+    "buttons": 12,
+    "inputs": 4,
+    "links": 5,
+    "actions": [
+      {
+        "id": "operations-1",
+        "kind": "button",
+        "label": "Operations",
+        "index": 0
+      },
+      {
+        "id": "settings-2",
+        "kind": "button",
+        "label": "Settings",
+        "index": 1
+      },
+      {
+        "id": "recovery-3",
+        "kind": "button",
+        "label": "Recovery",
+        "index": 2
+      },
+      {
+        "id": "create-task-4",
+        "kind": "button",
+        "label": "Create Task",
+        "index": 3
+      },
+      {
+        "id": "create-task-5",
+        "kind": "button",
+        "label": "Create Task",
+        "index": 4
+      },
+      {
+        "id": "all-6",
+        "kind": "button",
+        "label": "All",
+        "index": 5
+      },
+      {
+        "id": "active-7",
+        "kind": "button",
+        "label": "Active",
+        "index": 6
+      },
+      {
+        "id": "done-8",
+        "kind": "button",
+        "label": "Done",
+        "index": 7
+      },
+      {
+        "id": "archive-9",
+        "kind": "button",
+        "label": "Archive",
+        "index": 8
+      },
+      {
+        "id": "edit-10",
+        "kind": "button",
+        "label": "Edit",
+        "index": 9
+      },
+      {
+        "id": "edit-11",
+        "kind": "button",
+        "label": "Edit",
+        "index": 10
+      },
+      {
+        "id": "visibility-12",
+        "kind": "button",
+        "label": "Visibility",
+        "index": 11
+      },
+      {
+        "id": "operations-1-2",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "settings-2-2",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "recovery-3-2",
+        "kind": "link",
+        "label": "Recovery",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "cache-status-4",
+        "kind": "link",
+        "label": "Cache Status",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "json-export-5",
+        "kind": "link",
+        "label": "JSON Export",
+        "href": "#",
+        "index": 4
+      }
+    ]
+  },
+  {
+    "screenId": "c281df3f655a4cafbab49aff081355b4",
+    "title": "Short Editor - Compact One Page Task Chip Utility",
+    "componentName": "ShortEditorCompactOnePageTaskChipUtility",
+    "file": "src/screens/ShortEditorCompactOnePageTaskChipUtility.tsx",
+    "buttons": 3,
+    "inputs": 1,
+    "links": 8,
+    "actions": [
+      {
+        "id": "create-task-1",
+        "kind": "button",
+        "label": "Create Task",
+        "index": 0
+      },
+      {
+        "id": "cancel-2",
+        "kind": "button",
+        "label": "Cancel",
+        "index": 1
+      },
+      {
+        "id": "save-task-3",
+        "kind": "button",
+        "label": "Save Task",
+        "index": 2
+      },
+      {
+        "id": "operations-1",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "settings-2",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "recovery-3",
+        "kind": "link",
+        "label": "Recovery",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "operations-4",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "settings-5",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 4
+      },
+      {
+        "id": "recovery-6",
+        "kind": "link",
+        "label": "Recovery",
+        "href": "#",
+        "index": 5
+      },
+      {
+        "id": "cache-status-7",
+        "kind": "link",
+        "label": "Cache Status",
+        "href": "#",
+        "index": 6
+      },
+      {
+        "id": "json-export-8",
+        "kind": "link",
+        "label": "JSON Export",
+        "href": "#",
+        "index": 7
+      }
+    ]
+  },
+  {
+    "screenId": "a574ff7f6f8249e89f82ed0584c593a8",
+    "title": "Settings and Preferences - Compact One Page Task Chip Utility",
+    "componentName": "SettingsAndPreferencesCompactOnePageTaskChipUtility",
+    "file": "src/screens/SettingsAndPreferencesCompactOnePageTaskChipUtility.tsx",
+    "buttons": 4,
+    "inputs": 3,
+    "links": 8,
+    "actions": [
+      {
+        "id": "create-task-1",
+        "kind": "button",
+        "label": "Create Task",
+        "index": 0
+      },
+      {
+        "id": "clear-cache-2",
+        "kind": "button",
+        "label": "Clear Cache",
+        "index": 1
+      },
+      {
+        "id": "reset-to-defaults-3",
+        "kind": "button",
+        "label": "Reset to Defaults",
+        "index": 2
+      },
+      {
+        "id": "save-preferences-4",
+        "kind": "button",
+        "label": "Save Preferences",
+        "index": 3
+      },
+      {
+        "id": "operations-1",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "settings-2",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "recovery-3",
+        "kind": "link",
+        "label": "Recovery",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "operations-4",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "settings-5",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 4
+      },
+      {
+        "id": "recovery-6",
+        "kind": "link",
+        "label": "Recovery",
+        "href": "#",
+        "index": 5
+      },
+      {
+        "id": "cache-status-7",
+        "kind": "link",
+        "label": "Cache Status",
+        "href": "#",
+        "index": 6
+      },
+      {
+        "id": "json-export-8",
+        "kind": "link",
+        "label": "JSON Export",
+        "href": "#",
+        "index": 7
+      }
+    ]
+  },
+  {
+    "screenId": "c4dfb33dd86d4d5fa3f74180750ceb6e",
+    "title": "Empty and Error Recovery - Compact One Page Task Chip Utility",
+    "componentName": "EmptyAndErrorRecoveryCompactOnePageTaskChipUtility",
+    "file": "src/screens/EmptyAndErrorRecoveryCompactOnePageTaskChipUtility.tsx",
+    "buttons": 4,
+    "inputs": 0,
+    "links": 8,
+    "actions": [
+      {
+        "id": "create-task-1",
+        "kind": "button",
+        "label": "Create Task",
+        "index": 0
+      },
+      {
+        "id": "create-task-2",
+        "kind": "button",
+        "label": "Create Task",
+        "index": 1
+      },
+      {
+        "id": "retry-load-3",
+        "kind": "button",
+        "label": "Retry Load",
+        "index": 2
+      },
+      {
+        "id": "create-your-first-task-4",
+        "kind": "button",
+        "label": "Create Your First Task",
+        "index": 3
+      },
+      {
+        "id": "operations-1",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "settings-2",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "recovery-3",
+        "kind": "link",
+        "label": "Recovery",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "operations-4",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "settings-5",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 4
+      },
+      {
+        "id": "recovery-6",
+        "kind": "link",
+        "label": "Recovery",
+        "href": "#",
+        "index": 5
+      },
+      {
+        "id": "cache-status-7",
+        "kind": "link",
+        "label": "Cache Status",
+        "href": "#",
+        "index": 6
+      },
+      {
+        "id": "json-export-8",
+        "kind": "link",
+        "label": "JSON Export",
+        "href": "#",
+        "index": 7
+      }
+    ]
+  }
+]
