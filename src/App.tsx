@@ -172,6 +172,14 @@ interface SurfaceWrapperProps {
  * markup doesn't carry internally. The generated buttons fire the handlers
  * below; the search input drives `actSearchRecords` so the active filter
  * survives navigation away and back.
+ *
+ * PR review follow-up: the generated screen's `<input>` and per-row Edit
+ * buttons are completely static, so we mirror their behavior via DOM event
+ * listeners and a `filteredTasks` projection. The DOM listener keeps the
+ * uncontrolled search input in lockstep with React state; the
+ * `filteredTasks` projection lets the row Edit buttons target the
+ * corresponding record (the original `state.selectedItem.id` mapping sent
+ * every click to whichever record happened to be selected upstream).
  */
 function ShortOperationsSurface({ state, actions }: SurfaceWrapperProps) {
   const [searchDraft, setSearchDraft] = useState<string>(state.preferences.searchTerm);
@@ -190,6 +198,32 @@ function ShortOperationsSurface({ state, actions }: SurfaceWrapperProps) {
     [actions],
   );
 
+  // Project the visible task list the same way the count cards and the
+  // generated rows do: filter by active panel, then by search term. The
+  // `edit-10` and `edit-11` action mappings index into this list so each
+  // row's pencil button actually targets its own record.
+  const filteredTasks = useMemo(() => {
+    const term = state.preferences.searchTerm.trim().toLowerCase();
+    const byPanel = state.tasks.filter((task) => {
+      switch (state.activePanel) {
+        case 'active':
+          return task.status === 'active';
+        case 'done':
+          return task.status === 'done';
+        case 'archive':
+          return task.status === 'archived';
+        case 'all':
+        default:
+          return true;
+      }
+    });
+    if (term.length === 0) return byPanel;
+    return byPanel.filter((task) => {
+      const haystack = [task.name, task.category, task.notes ?? ''].join(' ').toLowerCase();
+      return haystack.includes(term);
+    });
+  }, [state.tasks, state.preferences.searchTerm, state.activePanel]);
+
   const operationsActionMap = useMemo<
     Partial<Record<ShortOperationsCompactOnePageTaskChipUtilityActionId, () => void>>
   >(() => {
@@ -197,6 +231,8 @@ function ShortOperationsSurface({ state, actions }: SurfaceWrapperProps) {
       actions.navigateTo(target);
     const panel = (id: 'all' | 'active' | 'done' | 'archive') => () =>
       actions.setActivePanel(id);
+    const selectFirst = filteredTasks[0]?.id ?? null;
+    const selectSecond = filteredTasks[1]?.id ?? null;
     return {
       'operations-1': navigate('operations'),
       'settings-2': navigate('settings'),
@@ -207,8 +243,8 @@ function ShortOperationsSurface({ state, actions }: SurfaceWrapperProps) {
       'active-7': panel('active'),
       'done-8': panel('done'),
       'archive-9': panel('archive'),
-      'edit-10': () => actSelectRecord(actions, state.selectedItem.id),
-      'edit-11': () => actSelectRecord(actions, state.selectedItem.id),
+      'edit-10': () => actSelectRecord(actions, selectFirst),
+      'edit-11': () => actSelectRecord(actions, selectSecond),
       'visibility-12': () => actRetryLoad(actions),
       'operations-1-2': navigate('operations'),
       'settings-2-2': navigate('settings'),
@@ -216,7 +252,7 @@ function ShortOperationsSurface({ state, actions }: SurfaceWrapperProps) {
       'cache-status-4': () => actRetryLoad(actions),
       'json-export-5': () => actRetryLoad(actions),
     };
-  }, [actions, state.selectedItem.id]);
+  }, [actions, filteredTasks]);
 
   // Hand the search input + change handler to a context-free shim so the
   // generated screen can read them through `window` without a global context.
@@ -234,6 +270,30 @@ function ShortOperationsSurface({ state, actions }: SurfaceWrapperProps) {
     w.__compactOnePageTaskChipUtilityOps = {
       searchValue: searchDraft,
       onSearchChange: handleSearchChange,
+    };
+  }, [searchDraft, handleSearchChange]);
+
+  // The generated `<input>` is uncontrolled and has no id hook, so we attach
+  // an `input` event listener through the DOM and seed its value from the
+  // React state on mount + every persisted-term change. The cleanup removes
+  // the listener so navigations away from the surface don't leak handlers.
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    const input = document.querySelector<HTMLInputElement>(
+      'input[placeholder="Search tasks..."]',
+    );
+    if (!input) return undefined;
+    if (input.value !== searchDraft) {
+      input.value = searchDraft;
+    }
+    const onInput = (event: Event): void => {
+      const target = event.target as HTMLInputElement | null;
+      if (!target) return;
+      handleSearchChange(target.value);
+    };
+    input.addEventListener('input', onInput);
+    return () => {
+      input.removeEventListener('input', onInput);
     };
   }, [searchDraft, handleSearchChange]);
 
@@ -258,10 +318,18 @@ interface ShortEditorFormDraft {
 /**
  * Stateful wrapper around the generated Short Editor screen. The generated
  * markup renders hard-coded `<input>` / `<select>` controls with no React
- * state binding; this wrapper holds the draft locally and feeds it into
- * `actSaveRecord` when the user clicks `Save Task`. The selected-item id
- * is sourced from the live store so a save click after an inline-edit
- * updates the existing record instead of minting a new one.
+ * state binding; this wrapper holds the draft locally, syncs it into the
+ * generated DOM fields, listens for user input, and feeds the result into
+ * `actSaveRecord` when the user clicks `Save Task`. The selected-item id is
+ * sourced from the live store so a save click after an inline-edit updates
+ * the existing record instead of minting a new one.
+ *
+ * PR review follow-up: the static generated form ignored the selected
+ * record and dropped every keystroke. We attach `input`/`change` listeners
+ * through the DOM (the generated markup has stable `#taskName`,
+ * `#status`, `#priority`, `#notes` ids) and mirror `draft` back into the
+ * fields whenever it changes - so an existing-task edit lands pre-populated
+ * and whatever the user types reaches `actSaveRecord` unchanged.
  */
 function ShortEditorSurface({ state, actions }: SurfaceWrapperProps) {
   const selectedTask = useMemo(() => {
@@ -343,6 +411,103 @@ function ShortEditorSurface({ state, actions }: SurfaceWrapperProps) {
       selectedId: state.selectedItem.id,
     };
   }, [draft, state.selectedItem.id]);
+
+  // Wire every generated form control: feed user input back into the draft
+  // and, on every draft change, push the current values into the DOM fields
+  // so editing an existing task opens with the saved values already
+  // populated. The generated markup keeps stable `#taskName` / `#status` /
+  // `#priority` / `#notes` ids we can query.
+  useEffect(() => {
+    if (typeof document === 'undefined') return undefined;
+    type EditorField =
+      | HTMLInputElement
+      | HTMLSelectElement
+      | HTMLTextAreaElement;
+    type WireTarget = {
+      selector: string;
+      apply: (value: string) => Partial<ShortEditorFormDraft>;
+    };
+    const targets: WireTarget[] = [
+      {
+        selector: 'input#taskName',
+        apply: (value) => ({ name: value }),
+      },
+      {
+        selector: 'select#status',
+        apply: (value) => ({
+          status: value as CompactOnePageTaskChipUtilityStatus,
+        }),
+      },
+      {
+        selector: 'select#priority',
+        apply: (value) => ({
+          priority: value as CompactOnePageTaskChipUtilityPriority,
+        }),
+      },
+      {
+        selector: 'textarea#notes',
+        apply: (value) => ({ notes: value }),
+      },
+    ];
+    const cleanups: Array<() => void> = [];
+    for (const target of targets) {
+      const el = document.querySelector<EditorField>(target.selector);
+      if (!el) continue;
+      const onChange = (event: Event): void => {
+        const node = event.target as EditorField | null;
+        if (!node) return;
+        const patch = target.apply(node.value);
+        setDraft((current) => ({ ...current, ...patch }));
+      };
+      el.addEventListener('input', onChange);
+      el.addEventListener('change', onChange);
+      cleanups.push(() => {
+        el.removeEventListener('input', onChange);
+        el.removeEventListener('change', onChange);
+      });
+    }
+    return () => {
+      for (const cleanup of cleanups) cleanup();
+    };
+  }, []);
+
+  // Push draft values into the generated DOM fields whenever the draft
+  // changes (mount, switch selection, user typing). We write directly to
+  // `.value` so the uncontrolled markup reflects the latest draft without
+  // re-running the listener - typing into a populated field updates the
+  // DOM, our `input` handler reads it, the draft changes, and this effect
+  // becomes a no-op because the DOM is already up to date.
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    const setIfDifferent = (
+      el: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null,
+      value: string,
+    ): void => {
+      if (!el) return;
+      if (el.value !== value) {
+        el.value = value;
+      }
+    };
+    setIfDifferent(document.querySelector<HTMLInputElement>('input#taskName'), draft.name);
+    setIfDifferent(
+      document.querySelector<HTMLSelectElement>('select#status'),
+      draft.status,
+    );
+    setIfDifferent(
+      document.querySelector<HTMLSelectElement>('select#priority'),
+      draft.priority,
+    );
+    setIfDifferent(
+      document.querySelector<HTMLTextAreaElement>('textarea#notes'),
+      draft.notes,
+    );
+  }, [
+    draft,
+    draft.name,
+    draft.status,
+    draft.priority,
+    draft.notes,
+  ]);
 
   return <ShortEditorCompactOnePageTaskChipUtility actions={editorActionMap} />;
 }
