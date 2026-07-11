@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Task Chip Utility - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#d3daef",
+                    "on-background": "#141b2b",
+                    "surface-bright": "#f9f9ff",
+                    "inverse-on-surface": "#edf0ff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#0b1c30",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-primary-fixed": "#00174b",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdbcd",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#141b2b",
+                    "secondary": "#505f76",
+                    "secondary-fixed": "#d3e4fe",
+                    "background": "#f9f9ff",
+                    "surface-container": "#e9edff",
+                    "surface-container-high": "#e1e8fd",
+                    "surface-variant": "#dce2f7",
+                    "inverse-surface": "#293040",
+                    "surface-tint": "#0053db",
+                    "surface": "#f9f9ff",
+                    "tertiary": "#943700",
+                    "surface-container-low": "#f1f3ff",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#bc4800",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#dbe1ff",
+                    "outline": "#737686",
+                    "inverse-primary": "#b4c5ff",
+                    "on-tertiary-container": "#ffede6",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "secondary-container": "#d0e1fb",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "on-surface-variant": "#434655",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "error-container": "#ffdad6",
+                    "outline-variant": "#c3c6d7",
+                    "primary-container": "#2563eb",
+                    "surface-container-highest": "#dce2f7",
+                    "on-primary-container": "#eeefff",
+                    "on-tertiary-fixed": "#360f00",
+                    "primary": "#004ac6",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-secondary-container": "#54647a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "space-md": "0.75rem",
+                    "space-lg": "1rem",
+                    "space-xs": "0.25rem",
+                    "sidebar-width": "240px",
+                    "layout-margin": "2rem",
+                    "gutter": "1rem",
+                    "space-sm": "0.5rem",
+                    "space-xl": "1.5rem",
+                    "space-xxs": "0.125rem"
+            },
+            "fontFamily": {
+                    "mono-sm": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "mono-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        [data-weight="fill"] .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-on-background font-body-md text-body-md fixed top-0 w-full z-50 border-b border-outline-variant dark:border-outline flex items-center justify-between px-space-lg h-12 w-full">
+<div class="flex items-center gap-space-lg">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-inverse-on-surface">Task Chip Utility</span>
+<div class="hidden md:flex items-center bg-surface-container-low rounded-full px-3 py-1">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48 ml-2" placeholder="Search..." type="text"/>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-space-lg h-full">
+<a class="h-full flex items-center px-space-xs text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors active:scale-95 duration-150" href="#">Operations</a>
+<a class="h-full flex items-center px-space-xs text-primary dark:text-inverse-primary border-b-2 border-primary pb-1 hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors active:scale-95 duration-150" href="#">Settings</a>
+<a class="h-full flex items-center px-space-xs text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors active:scale-95 duration-150" href="#">Recovery</a>
+</div>
+<button class="bg-primary-container text-on-primary-container font-label-md text-label-md px-4 py-1.5 rounded flex items-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">add</span>
+            Create Task
+        </button>
+</nav>
+<!-- SideNavBar (Hidden on Mobile) -->
+<aside class="hidden md:flex bg-surface-container-low dark:bg-on-background font-label-md text-label-md fixed left-0 top-0 h-full w-sidebar-width border-r border-outline-variant dark:border-outline flex-col p-space-md space-y-space-xs pt-16 z-40">
+<div class="mb-space-lg px-space-xs">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-surface-dim overflow-hidden flex-shrink-0">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A minimal, professional abstract avatar graphic with a soft blue gradient background and geometric white shapes, representing a user profile icon in a corporate software setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgBIBV4yQGymd_ph0vvZheq2Nqa6W-hVvUMvriipR3nFES1t5J7H-zQkA0hWrfUWdf2ah8Db4BfPtDZKC25yDkCE79Otd_IrUW9aHsRNVBh_syWVL0M4wXuJZhJ0jhao7ZlMrb3ivEX4z2UYdvlcpcPCuKR7yDDIqEeSeKeHTweTnSCh7nKH9Eb3pjY6T_a5Juyhnf2KHYqJu8HDCtpow8Q5r8g6gZRIejHD9b7Cqd0aB6rF5raOoxNuONsGwOlMwbFGWL2a3bJ7N9"/>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-inverse-on-surface truncate">Task Chip Utility</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Utility v1.0</div>
+</div>
+</div>
+</div>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="assignment">assignment</span>
+<span>Operations</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed rounded-xl transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="history">history</span>
+<span>Recovery</span>
+</a>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-16 pb-16 md:ml-[240px] p-layout-margin md:p-space-xl flex justify-center">
+<div class="w-full max-w-4xl flex flex-col gap-space-lg">
+<header class="mb-space-md">
+<h1 class="font-headline-sm text-headline-sm text-on-surface">Settings and Preferences</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Manage your workspace configuration and data defaults.</p>
+</header>
+<!-- Grid Layout for Settings -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Workflow Defaults -->
+<section class="bg-surface border border-outline-variant rounded-xl p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center gap-2 mb-2 border-b border-surface-variant pb-2">
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+<h2 class="font-label-md text-label-md text-on-surface">Workflow Defaults</h2>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Default Filter View</label>
+<select class="bg-surface-bright border border-outline-variant rounded h-[36px] px-3 font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none text-on-surface">
+<option>All Active Tasks</option>
+<option>Assigned to Me</option>
+<option>High Priority Only</option>
+</select>
+</div>
+<div class="flex flex-col gap-1 mt-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Default Task Status</label>
+<select class="bg-surface-bright border border-outline-variant rounded h-[36px] px-3 font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none text-on-surface">
+<option>Pending</option>
+<option>In Progress</option>
+<option>Backlog</option>
+</select>
+</div>
+</section>
+<!-- Interface Density -->
+<section class="bg-surface border border-outline-variant rounded-xl p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center gap-2 mb-2 border-b border-surface-variant pb-2">
+<span class="material-symbols-outlined text-primary text-[20px]">grid_view</span>
+<h2 class="font-label-md text-label-md text-on-surface">Interface Density</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Adjust the vertical spacing and typography density of data tables and lists.</p>
+<div class="flex gap-4 mt-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="text-primary focus:ring-primary" name="density" type="radio"/>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary transition-colors">Compact</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="text-primary focus:ring-primary" name="density" type="radio"/>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary transition-colors">Comfortable</span>
+</label>
+</div>
+</section>
+<!-- Data Management -->
+<section class="bg-surface border border-outline-variant rounded-xl p-space-lg flex flex-col gap-space-md md:col-span-2">
+<div class="flex items-center gap-2 mb-2 border-b border-surface-variant pb-2">
+<span class="material-symbols-outlined text-primary text-[20px]">database</span>
+<h2 class="font-label-md text-label-md text-on-surface">Data Management</h2>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<div class="font-body-sm text-body-sm text-on-surface font-medium">Local Cache</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Clear cached data to resolve sync issues or free up space. (Current: 24MB)</div>
+</div>
+<button class="bg-surface-bright border border-outline-variant text-on-surface font-label-md text-label-md px-4 py-2 rounded hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+                            Clear Cache
+                        </button>
+</div>
+</section>
+</div>
+<!-- Action Bar -->
+<div class="flex justify-end gap-space-md mt-space-md pt-space-lg border-t border-outline-variant">
+<button class="bg-surface-bright border border-outline-variant text-on-surface font-label-md text-label-md px-5 py-2 rounded hover:bg-surface-variant transition-colors">
+                    Reset to Defaults
+                </button>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-5 py-2 rounded hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" onclick="savePreferences()">
+                    Save Preferences
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-on-background font-mono-sm text-mono-sm fixed bottom-0 w-full border-t border-outline-variant dark:border-outline flex justify-between items-center px-space-lg py-space-xs z-50">
+<div class="font-label-sm text-label-sm font-bold text-on-surface">Task Chip Utility © 2024</div>
+<div class="flex gap-space-lg">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline cursor-pointer transition-opacity" href="#">Cache Status</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline cursor-pointer transition-opacity" href="#">JSON Export</a>
+</div>
+</footer>
+<!-- Toast Notification (Hidden by default) -->
+<div class="fixed bottom-16 right-space-lg bg-inverse-surface text-inverse-on-surface font-body-sm text-body-sm px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 z-50" id="toast">
+<span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span>
+        Settings saved successfully
+    </div>
+<script>
+        function savePreferences() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body></html>

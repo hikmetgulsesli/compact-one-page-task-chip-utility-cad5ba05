@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Short Editor - Task Chip Utility</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#d3daef",
+                        "on-background": "#141b2b",
+                        "surface-bright": "#f9f9ff",
+                        "inverse-on-surface": "#edf0ff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed": "#00174b",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdbcd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#141b2b",
+                        "secondary": "#505f76",
+                        "secondary-fixed": "#d3e4fe",
+                        "background": "#f9f9ff",
+                        "surface-container": "#e9edff",
+                        "surface-container-high": "#e1e8fd",
+                        "surface-variant": "#dce2f7",
+                        "inverse-surface": "#293040",
+                        "surface-tint": "#0053db",
+                        "surface": "#f9f9ff",
+                        "tertiary": "#943700",
+                        "surface-container-low": "#f1f3ff",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#bc4800",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "outline": "#737686",
+                        "inverse-primary": "#b4c5ff",
+                        "on-tertiary-container": "#ffede6",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "secondary-container": "#d0e1fb",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "on-surface-variant": "#434655",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c3c6d7",
+                        "primary-container": "#2563eb",
+                        "surface-container-highest": "#dce2f7",
+                        "on-primary-container": "#eeefff",
+                        "on-tertiary-fixed": "#360f00",
+                        "primary": "#004ac6",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-secondary-container": "#54647a"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "space-md": "0.75rem",
+                        "space-lg": "1rem",
+                        "space-xs": "0.25rem",
+                        "sidebar-width": "240px",
+                        "layout-margin": "2rem",
+                        "gutter": "1rem",
+                        "space-sm": "0.5rem",
+                        "space-xl": "1.5rem",
+                        "space-xxs": "0.125rem"
+                    },
+                    fontFamily: {
+                        "mono-sm": ["JetBrains Mono", "monospace"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-sm": ["Inter", "sans-serif"],
+                        "body-sm": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"]
+                    },
+                    fontSize: {
+                        "mono-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }],
+                        "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "headline-sm": ["18px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+                        "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "600" }],
+                        "label-md": ["12px", { lineHeight: "16px", fontWeight: "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex items-center justify-between px-space-lg h-12 shadow-sm">
+<div class="flex items-center gap-space-md">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Task Chip Utility</span>
+</div>
+<!-- Web Nav Links (Hidden on mobile as per TopAppBar cluster rules) -->
+<div class="hidden md:flex items-center space-x-space-md">
+<a class="text-primary border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">Operations</a>
+<a class="text-on-surface-variant hover:bg-surface-container transition-colors font-label-md text-label-md px-2 py-1 rounded" href="#">Settings</a>
+<a class="text-on-surface-variant hover:bg-surface-container transition-colors font-label-md text-label-md px-2 py-1 rounded" href="#">Recovery</a>
+</div>
+<div class="flex items-center gap-space-md">
+<button class="bg-primary-container text-on-primary-container font-label-md text-label-md px-space-md py-1.5 rounded-lg active:scale-95 duration-150">Create Task</button>
+</div>
+</nav>
+<div class="flex flex-1 pt-12">
+<!-- SideNavBar (Hidden on mobile) -->
+<aside class="fixed left-0 top-12 h-[calc(100vh-48px)] w-sidebar-width bg-surface-container-low border-r border-outline-variant flex-col p-space-md space-y-space-xs hidden md:flex z-40">
+<div class="mb-space-lg flex items-center gap-space-md p-space-xs">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 16px;">person</span>
+</div>
+<div>
+<div class="font-label-md text-label-md font-bold text-on-surface">Utility v1.0</div>
+</div>
+</div>
+<a class="flex items-center gap-space-sm p-space-sm bg-secondary-container text-on-secondary-container rounded-xl transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-md text-label-md">Operations</span>
+</a>
+<a class="flex items-center gap-space-sm p-space-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-space-sm p-space-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-md text-label-md">Recovery</span>
+</a>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-sidebar-width p-space-xl overflow-y-auto">
+<!-- Page Header -->
+<div class="max-w-3xl mx-auto mb-space-lg flex items-center justify-between">
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-surface">Task Editor</h1>
+<!-- Unsaved Changes Badge (Task Chip Style) -->
+<div class="inline-flex items-center gap-1.5 px-[6px] py-[2px] bg-tertiary-container/10 border border-tertiary-container/20 rounded-md">
+<span class="w-[6px] h-[6px] rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-tertiary">Unsaved changes</span>
+</div>
+</div>
+<!-- Editor Form Card -->
+<div class="max-w-3xl mx-auto bg-surface border border-outline-variant rounded-xl p-space-xl shadow-sm">
+<form class="space-y-space-lg">
+<!-- Task Name (with inline error validation) -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs" for="taskName">Task Name *</label>
+<input class="block w-full h-[36px] px-space-md border border-error focus:border-error focus:ring-1 focus:ring-error rounded-md bg-surface font-body-md text-body-md text-on-surface" id="taskName" name="taskName" placeholder="Enter task name" type="text" value=""/>
+<p class="font-label-md text-label-md text-error mt-space-xs">Task Name is required</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Status -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs" for="status">Status</label>
+<select class="block w-full h-[36px] px-space-md border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-md bg-surface font-body-md text-body-md text-on-surface" id="status" name="status">
+<option value="active">Active</option>
+<option value="done">Done</option>
+<option value="archived">Archived</option>
+</select>
+</div>
+<!-- Priority -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs" for="priority">Priority</label>
+<select class="block w-full h-[36px] px-space-md border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-md bg-surface font-body-md text-body-md text-on-surface" id="priority" name="priority">
+<option value="low">Low</option>
+<option selected="" value="medium">Medium</option>
+<option value="high">High</option>
+</select>
+</div>
+</div>
+<!-- Notes -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs" for="notes">Notes</label>
+<textarea class="block w-full px-space-md py-space-sm border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-md bg-surface font-body-md text-body-md text-on-surface" id="notes" name="notes" placeholder="Add additional context or notes..." rows="4"></textarea>
+</div>
+<!-- Actions -->
+<div class="pt-space-md border-t border-outline-variant flex justify-end gap-space-md">
+<button class="px-space-lg py-1.5 bg-surface border border-outline-variant text-on-surface font-label-md text-label-md rounded-lg hover:bg-surface-container transition-colors" type="button">
+                            Cancel
+                        </button>
+<button class="px-space-lg py-1.5 bg-primary-container text-on-primary-container font-label-md text-label-md rounded-lg hover:bg-primary-container/90 active:scale-95 transition-all" type="button">
+                            Save Task
+                        </button>
+</div>
+</form>
+</div>
+<div class="h-16"></div> <!-- Spacer for footer -->
+</main>
+</div>
+<!-- Footer -->
+<footer class="fixed bottom-0 md:ml-sidebar-width w-full md:w-[calc(100%-240px)] bg-surface-container-lowest border-t border-outline-variant flex justify-between items-center px-space-lg py-space-xs z-50">
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant">Task Chip Utility © 2024</span>
+<div class="flex gap-space-md">
+<a class="font-mono-sm text-mono-sm text-secondary hover:text-primary underline cursor-pointer transition-opacity" href="#">Cache Status</a>
+<a class="font-mono-sm text-mono-sm text-secondary hover:text-primary underline cursor-pointer transition-opacity" href="#">JSON Export</a>
+</div>
+</footer>
+</body></html>

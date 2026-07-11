@@ -1,0 +1,46 @@
+[
+  {
+    "screenId": "a406f175adf34515bd1dbadc29817ac6",
+    "title": "Short Operations - Compact One Page Task Chip Utility",
+    "htmlFile": "a406f175adf34515bd1dbadc29817ac6.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2E2MzQzYzJkNzQ5NTQwMDY5NzliNzA5MGU3N2QzODllEgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxMDM4MDAzMTA1MTI3OTgyNDkwMA&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/compact-one-page-task-chip-utility-cad5ba05/stitch/a406f175adf34515bd1dbadc29817ac6.html",
+    "surfaceIds": [
+      "SURF_SHORT_OPERATIONS"
+    ]
+  },
+  {
+    "screenId": "c281df3f655a4cafbab49aff081355b4",
+    "title": "Short Editor - Compact One Page Task Chip Utility",
+    "htmlFile": "c281df3f655a4cafbab49aff081355b4.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2NhYzAzM2I3N2ZjYjQ2OGFiYWI3YjIyZDY4NWMyMTJiEgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxMDM4MDAzMTA1MTI3OTgyNDkwMA&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/compact-one-page-task-chip-utility-cad5ba05/stitch/c281df3f655a4cafbab49aff081355b4.html",
+    "surfaceIds": [
+      "SURF_SHORT_EDITOR"
+    ]
+  },
+  {
+    "screenId": "a574ff7f6f8249e89f82ed0584c593a8",
+    "title": "Settings and Preferences - Compact One Page Task Chip Utility",
+    "htmlFile": "a574ff7f6f8249e89f82ed0584c593a8.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzY5Yjg5NDgwZjE4MTQ5Njk5ZGU1YjFiYTI1MjRiNTIzEgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxMDM4MDAzMTA1MTI3OTgyNDkwMA&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/compact-one-page-task-chip-utility-cad5ba05/stitch/a574ff7f6f8249e89f82ed0584c593a8.html",
+    "surfaceIds": [
+      "SURF_SETTINGS_AND_PREFERENCES"
+    ]
+  },
+  {
+    "screenId": "c4dfb33dd86d4d5fa3f74180750ceb6e",
+    "title": "Empty and Error Recovery - Compact One Page Task Chip Utility",
+    "htmlFile": "c4dfb33dd86d4d5fa3f74180750ceb6e.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzdiMzkwN2MzODhmMDQ5MzRhMmZjYWY0YzM0NGYwOWRkEgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxMDM4MDAzMTA1MTI3OTgyNDkwMA&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/compact-one-page-task-chip-utility-cad5ba05/stitch/c4dfb33dd86d4d5fa3f74180750ceb6e.html",
+    "surfaceIds": [
+      "SURF_EMPTY_AND_ERROR_RECOVERY"
+    ]
+  }
+]
