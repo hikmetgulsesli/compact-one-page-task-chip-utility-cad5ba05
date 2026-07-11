@@ -237,9 +237,20 @@ export const CompactOnePageTaskChipUtilityProvider = ({
   children,
   disablePersistence = false,
 }: CompactOnePageTaskChipUtilityProviderProps) => {
-  const [state, dispatch] = useReducer(reducer, undefined, initialState);
+  // React's `useReducer` update is asynchronous and batched: if two actions
+  // run in the same event-loop tick (e.g. `createTask` called twice in a row),
+  // both would read the same `stateRef.current` value and the second would
+  // silently overwrite the first. To keep `stateRef.current` strictly in sync
+  // with the latest reducer output we apply the reducer synchronously here
+  // before scheduling the React update. The reducer is a pure function, so
+  // running it twice is safe.
+  const [state, reactDispatch] = useReducer(reducer, undefined, initialState);
   const stateRef = useRef(state);
   stateRef.current = state;
+  const dispatch = useCallback((action: Action): void => {
+    stateRef.current = reducer(stateRef.current, action);
+    reactDispatch(action);
+  }, []);
 
   const persistTasksSafely = useCallback(
     (tasks: ReadonlyArray<CompactOnePageTaskChipUtilityTask>): void => {
@@ -370,16 +381,22 @@ export const CompactOnePageTaskChipUtilityProvider = ({
         });
         return;
       }
-      // Corrupted still: reseed and signal corrupted.
-      seedFixtures();
+      // Storage was missing or corrupted. Reseed fixtures so the next read
+      // returns valid data. Only signal an error if reseeding itself failed -
+      // a successful reseed means storage is no longer corrupted and the
+      // `storage/ready` dispatch below already set the status to `'ready'`.
+      const seedOk = seedFixtures();
+      if (!seedOk) {
+        dispatch({
+          type: 'error',
+          message: 'Failed to seed default fixtures while recovering from corrupted storage.',
+        });
+        return;
+      }
       dispatch({
         type: 'storage/ready',
         tasks: fixtureTasks.slice(),
         preferences: { ...fixturePreferences },
-      });
-      dispatch({
-        type: 'storage/status',
-        status: tasksResult.ok && prefsResult.ok ? 'ready' : 'corrupted',
       });
     };
 
@@ -403,9 +420,21 @@ export const CompactOnePageTaskChipUtilityProvider = ({
     };
   }, [persistTasksSafely, persistPreferencesSafely]);
 
+  // `getApi` exposes a live handle for the bridge installer. The `state`
+  // property is a getter so external consumers (e.g. `window.app.chipUtility.state`)
+  // always read the latest `stateRef.current` value without needing to
+  // re-install the bridge on every state change.
   const getApi = useCallback<
     CompactOnePageTaskChipUtilityContextValue['getApi']
-  >(() => ({ state: stateRef.current, actions }), [actions]);
+  >(() => {
+    const api = {
+      get state(): CompactOnePageTaskChipUtilityState {
+        return stateRef.current;
+      },
+      actions,
+    };
+    return api;
+  }, [actions]);
 
   const value = useMemo<CompactOnePageTaskChipUtilityContextValue>(
     () => ({ state, actions, getApi }),
